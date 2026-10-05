@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>News Article | World Pulse</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #08090d;
+            color: #ffffff;
+
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1050px, 92%);
+            margin: auto;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(8, 9, 13, 0.94);
+
+            backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav {
+            height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #e50914;
+        }
+
+        .back {
+            padding: 10px 16px;
+
+            border:
+                1px solid rgba(255,255,255,0.1);
+
+            border-radius: 30px;
+
+            color: #c6cad3;
+
+            font-size: 13px;
+        }
+
+        .back:hover {
+            background: #171922;
+            color: white;
+        }
+
+        /* =========================
+           ARTICLE
+        ========================= */
+
+        .article-page {
+            padding: 60px 0 100px;
+        }
+
+        .category {
+            display: inline-block;
+
+            margin-bottom: 18px;
+
+            padding: 6px 11px;
+
+            background: #e50914;
+
+            color: white;
+
+            border-radius: 4px;
+
+            font-size: 10px;
+
+            font-weight: 900;
+
+            letter-spacing: 1px;
+        }
+
+        .article-title {
+            max-width: 950px;
+
+            font-size:
+                clamp(38px, 6vw, 72px);
+
+            line-height: 1.03;
+
+            letter-spacing: -2.5px;
+
+            margin-bottom: 20px;
+        }
+
+        .article-description {
+            max-width: 850px;
+
+            color: #aab0bc;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            margin-bottom: 25px;
+        }
+
+        .article-meta {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+            color: #747b88;
+
+            font-size: 12px;
+
+            margin-bottom: 35px;
+        }
+
+        .article-image {
+            width: 100%;
+
+            max-height: 650px;
+
+            object-fit: cover;
+
+            border-radius: 18px;
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            margin-bottom: 40px;
+        }
+
+        .article-content {
+            max-width: 820px;
+
+            color: #d9dce2;
+
+            font-size: 17px;
+
+            line-height: 1.9;
+        }
+
+        .article-content p {
+            margin-bottom: 22px;
+        }
+
+        .source-box {
+            margin-top: 45px;
+
+            padding: 25px;
+
+            background: #111319;
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            border-radius: 14px;
+        }
+
+        .source-box h3 {
+            margin-bottom: 7px;
+
+            font-size: 17px;
+        }
+
+        .source-box p {
+            color: #858c99;
+
+            margin-bottom: 15px;
+
+            font-size: 13px;
+        }
+
+        .source-button {
+            display: inline-block;
+
+            padding: 13px 20px;
+
+            background: #e50914;
+
+            color: white;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            font-weight: 800;
+        }
+
+        .source-button:hover {
+            background: #b80710;
+        }
+
+        .no-article {
+            padding: 100px 20px;
+
+            text-align: center;
+
+            color: #9298a6;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 25px 0;
+
+            border-top:
+                1px solid rgba(255,255,255,0.08);
+
+            text-align: center;
+
+            color: #646b77;
+
+            font-size: 11px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 650px) {
+
+            .article-page {
+                padding-top: 35px;
+            }
+
+            .article-title {
+                font-size: 38px;
+                letter-spacing: -1.5px;
+            }
+
+            .article-description {
+                font-size: 15px;
+            }
+
+            .article-content {
+                font-size: 15px;
+            }
+
+            .article-image {
+                max-height: 420px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="container nav">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            WORLD<span>PULSE</span>
+        </a>
+
+        <a
+            href="javascript:history.back()"
+            class="back"
+        >
+            ← Back to News
+        </a>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <section class="article-page">
+
+        <div
+            class="container"
+            id="articleContainer"
+        >
+
+            <div class="no-article">
+                Loading article...
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    © 2026 World Pulse. All rights reserved.
+
+</footer>
+
+
+<script>
+
+    const container =
+        document.getElementById(
+            "articleContainer"
+        );
+
+
+    /*
+       The news page will save the selected
+       article here before opening this page.
+    */
+
+    const savedArticle =
+        localStorage.getItem(
+            "worldPulseArticle"
+        );
+
+
+    if (!savedArticle) {
+
+        container.innerHTML = `
+            <div class="no-article">
+
+                <h2>
+                    No article selected
+                </h2>
+
+                <p>
+                    Go back to the news page and
+                    choose a story.
+                </p>
+
+            </div>
+        `;
+
+    } else {
+
+        try {
+
+            const article =
+                JSON.parse(
+                    savedArticle
+                );
+
+
+            const title =
+                article.title ||
+                "Untitled News Story";
+
+
+            const description =
+                article.description ||
+                "No description available.";
+
+
+            const image =
+                article.image ||
+                "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1400&q=85";
+
+
+            const source =
+                article.source?.name ||
+                "World Pulse";
+
+
+            const date =
+                article.publishedAt
+                    ? new Date(
+                        article.publishedAt
+                    ).toLocaleString(
+                        "en-US",
+                        {
+                            dateStyle: "medium",
+                            timeStyle: "short"
+                        }
+                    )
+                    : "Date unavailable";
+
+
+            container.innerHTML = `
+
+                <span class="category">
+                    WORLD PULSE
+                </span>
+
+
+                <h1 class="article-title">
+                    ${escapeHTML(title)}
+                </h1>
+
+
+                <p class="article-description">
+                    ${escapeHTML(description)}
+                </p>
+
+
+                <div class="article-meta">
+
+                    <span>
+                        Source: ${escapeHTML(source)}
+                    </span>
+
+                    <span>•</span>
+
+                    <span>
+                        ${escapeHTML(date)}
+                    </span>
+
+                </div>
+
+
+                <img
+                    class="article-image"
+                    src="${escapeHTML(image)}"
+                    alt="${escapeHTML(title)}"
+                >
+
+
+                <div class="article-content">
+
+                    <p>
+                        ${escapeHTML(description)}
+                    </p>
+
+                    <p>
+                        This story was published by
+                        <strong>${escapeHTML(source)}</strong>.
+                        Use the button below to continue reading
+                        the complete article on the original
+                        publisher's website.
+                    </p>
+
+                </div>
+
+
+                <div class="source-box">
+
+                    <h3>
+                        Read the Complete Story
+                    </h3>
+
+                    <p>
+                        Continue to the original publisher
+                        for the full article and additional
+                        information.
+                    </p>
+
+                    <a
+                        class="source-button"
+                        href="${escapeHTML(article.url || "#")}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Read Original Article →
+                    </a>
+
+                </div>
+
+            `;
+
+
+            document.title =
+                `${title} | World Pulse`;
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            container.innerHTML = `
+
+                <div class="no-article">
+
+                    <h2>
+                        Unable to open article
+                    </h2>
+
+                    <p>
+                        The saved article data is invalid.
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+
+    }
+
+
+    function escapeHTML(value) {
+
+        return String(value || "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+
+    }
+
+</script>
+
+
+</body>
+</html>
